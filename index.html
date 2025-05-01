@@ -24,21 +24,7 @@
         margin: 0 auto;
       }
 
-      /* Headings */
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        line-height: 1.1;
-        font-weight: 600;
-        text-wrap: balance;
-      }
-
-      h1,
-      h2 {
+      h1, h2 {
         border-bottom: 1px solid var(--color-neutral-80);
         padding-bottom: 0.2em;
       }
@@ -47,47 +33,13 @@
         margin-block: 1em 0.5rem;
         font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
         font-weight: 800;
-
-        small {
-          display: block;
-          width: fit-content;
-          padding: 0.2em 0.5em;
-          margin-inline: auto;
-          color: white;
-          background: var(--color-neutral-40);
-          font-size: 40%;
-          text-transform: uppercase;
-          white-space: nowrap;
-        }
       }
 
-      h2 {
-        font-size: 180%;
-        color: var(--color-neutral-30);
-      }
+      h2 { font-size: 180%; color: var(--color-neutral-30); }
+      h3 { font-size: 130%; }
 
-      h3 {
-        font-size: 130%;
-      }
-
-      /* Lists */
-
-      ul,
-      ol {
-        padding-inline-start: 2em;
-      }
-
-      li {
-        &::marker {
-          color: var(--color-neutral-40);
-        }
-
-        + li {
-          margin-top: 0.2em;
-        }
-      }
-
-      /* Sectioning elements */
+      ul, ol { padding-inline-start: 2em; }
+      li + li { margin-top: 0.2em; }
 
       header {
         padding-block: 1em;
@@ -101,8 +53,6 @@
         padding: 0.1rem 2rem;
       }
 
-      /* Figures */
-
       figure {
         margin: 1em 0;
         padding: 0.5rem;
@@ -111,32 +61,28 @@
         box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
         text-align: center;
         background: white;
+      }
 
-        > figcaption {
-          font: 500 75% var(--font-sans);
-          background: var(--color-neutral-95);
-          padding: 0.5rem;
-          margin: -0.5rem;
-          margin-top: 0.5rem;
-          counter-increment: figure;
-          text-align: left;
+      figure > figcaption {
+        font: 500 75% var(--font-sans);
+        background: var(--color-neutral-95);
+        padding: 0.5rem;
+        margin: -0.5rem;
+        margin-top: 0.5rem;
+        counter-increment: figure;
+        text-align: left;
+      }
 
-          &::before {
-            content: 'Figure ' counter(figure) ': ';
-            font-weight: bold;
-            color: var(--color-neutral-40);
-          }
+      figure > figcaption::before {
+        content: 'Figure ' counter(figure) ': ';
+        font-weight: bold;
+        color: var(--color-neutral-40);
+      }
 
-          a:not(:hover, :focus, :active) {
-            color: inherit;
-            text-decoration: underline;
-            text-decoration-color: color-mix(
-              in lab,
-              currentColor,
-              transparent 70%
-            );
-          }
-        }
+      iframe {
+        width: 100%;
+        height: 600px;
+        border: none;
       }
     </style>
   </head>
@@ -144,54 +90,48 @@
   <body>
     <header>
       <h1>
-        <small>Project 2</small>
-        Persuasive or Deceptive Visualization?
+        <small>Project 2: Persuasive or Deceptive Visualization?
+        </small>
       </h1>
-
       <p><strong>Karina Shah</strong> — <em>k7shah@ucsd.edu</em></p>
     </header>
 
     <main>
-      <h2>Proposition: [STATE PROPOSITION]</h2>
+      <h2>Proposition: "States with fewer abortion clinics have higher rates of residents traveling out-of-state for abortion care."</h2>
 
       <section>
         <h3>FOR the Proposition</h3>
-
         <figure>
-          <img src="IMAGE_FILENAME" alt="" />
-          <figcaption>BRIEF CAPTION HERE.</figcaption>
+          <iframe src="prop1_for.html"></iframe>
+          <figcaption>Scatter plot showing fewer clinics are associated with higher out-of-state abortion travel rates.</figcaption>
         </figure>
-
         <p>Design Decisions and Rationale:</p>
-
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
+          <li>Added a regression trendline to imply a strong correlation.</li>
+          <li>Color encoding for % of counties without a clinic emphasizes access inequality.</li>
+          <li>Bubble size encodes % of women without local clinic to emotionally amplify disparities.</li>
         </ul>
       </section>
 
       <section>
         <h3>AGAINST the Proposition</h3>
-
         <figure>
-          <img src="IMAGE_FILENAME" alt="" />
-          <figcaption>BRIEF CAPTION HERE.</figcaption>
+          <iframe src="prop1_against.html"></iframe>
+          <figcaption>Choropleth using confusing plasma color scale to obscure visible trends.</figcaption>
         </figure>
-
         <p>Design Decisions and Rationale:</p>
-
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
+          <li>Used reversed and ambiguous color gradient (plasma) to blur regional differences.</li>
+          <li>Removed trendlines or annotations to make interpretations harder.</li>
+          <li>Color associations don’t match viewers’ expectations, making patterns less intuitive.</li>
         </ul>
       </section>
 
       <section>
         <h2>Final Reflection</h2>
+        <p>This project taught me that data visualization is not neutral — even when using accurate data, the design process inherently involves choices that shape what viewers see and feel. Through this assignment, I discovered how subtle design shifts — like changing a color gradient or including a regression line — can dramatically alter a viewer’s perception of causality or urgency. I also realized that deception isn't always obvious: emotional emphasis (like bubble size or red zones) can steer readers subtly, even if no data is “falsified.”
 
-        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+          The line between ethical persuasion and deception lies in intent and clarity. Earnest visualizations aim to reveal truth through clear design. Deceptive ones might hide or distort patterns to protect an argument. I learned that persuasive design isn't about making visuals flashy — it’s about framing narratives carefully. The most interesting challenge was designing the "AGAINST" visualization: it forced me to weaken a real pattern without lying, and that subtlety was surprisingly powerful. Going forward, I’ll be more critical of how I design — and how I interpret — every visualization I see.</p>
       </section>
     </main>
   </body>
